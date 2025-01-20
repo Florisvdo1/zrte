@@ -1,48 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Essential Meta Tags -->
   <meta charset="UTF-8" />
-  <meta name="description" content="Hoover Art - The Fusion of Nature, Fantasy, and Feminine Beauty" />
+  <meta name="description" content="oever.art – A 1-Billion-Dollar-Worthy Fusion of Nature, Fantasy, and Feminine Beauty" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>oever.art – Where Luxury Meets Artistry (Now with Updated Logo Motion)</title>
+  <title>oever.art – Refined & Rebuilt for Luxury</title>
 
-  <!-- Google Fonts (Premium Typography) -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- GSAP (GreenSock Animation Platform) via CDN -->
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-
-  <!-- Example of React (Optional), loaded from a CDN -->
-  <!-- 
-    For a production-grade app, you could bundle React or use a framework like Next.js/Gatsby (Node) 
-    or Nuxt.js (Vue) for best performance and SEO.
-  -->
-  <script
-    crossorigin
-    src="https://unpkg.com/react@18/umd/react.production.min.js"
-  ></script>
-  <script
-    crossorigin
-    src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
-  ></script>
-  <script
-    src="https://unpkg.com/babel-standalone@6/babel.min.js"
-  ></script>
-
-  <!-- Styles -->
+  <!-- Inline CSS (formerly style.css) -->
   <style>
     :root {
       --color-background: #000000;
       --color-foreground: #ffffff;
-      --color-accent: #ffd700; /* Gold accent for premium feel */
+      --color-accent: #ffd700; /* Gold accent */
       --font-primary: 'Poppins', sans-serif;
       --font-secondary: 'Playfair Display', serif;
       --transition-speed: 0.3s;
+      --container-width: 1200px;
     }
 
     * {
@@ -59,9 +32,44 @@
       overflow-x: hidden;
     }
 
-    /* ----------------------------- */
-    /* HERO SECTION WITH ANIMATIONS */
-    /* ----------------------------- */
+    /* Container Utility */
+    .container {
+      width: 90%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* NAV / HEADER */
+    .site-header {
+      background-color: #111;
+      padding: 1rem 0;
+    }
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .branding .logo {
+      font-family: var(--font-secondary);
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    .nav-links a:hover {
+      color: var(--color-accent);
+    }
+
+    /* HERO SECTION */
     .hero-section {
       position: relative;
       width: 100%;
@@ -71,11 +79,8 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background-color: var(--color-background);
     }
-
-    /* Container for the fluid art shapes */
-    .animated-bg {
+    .hero-media {
       position: absolute;
       top: 0;
       left: 0;
@@ -84,80 +89,39 @@
       overflow: hidden;
       z-index: 0;
     }
-
-    .shape {
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
       position: absolute;
-      background: var(--color-accent);
-      opacity: 0.15;
-      border-radius: 50%;
-      mix-blend-mode: screen;
-      /* GPU-Optimized via transform3d */
-      transform: translate3d(0, 0, 0);
-      animation: floatShapes 10s infinite ease-in-out alternate;
-    }
-
-    /* Keyframes for shapes (floating, scaling, rotating for fluidity) */
-    @keyframes floatShapes {
-      0% {
-        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
-      }
-      50% {
-        transform: translate3d(50px, -50px, 0) scale(1.3) rotate(45deg);
-      }
-      100% {
-        transform: translate3d(-50px, 50px, 0) scale(1.1) rotate(-45deg);
-      }
-    }
-
-    /* Shape variants for more dynamic visuals */
-    .shape-1 {
-      width: 300px;
-      height: 300px;
-      top: 10%;
-      left: 15%;
-      animation-duration: 12s;
-    }
-    .shape-2 {
-      width: 400px;
-      height: 400px;
-      top: 50%;
-      left: 60%;
-      animation-duration: 15s;
-    }
-    .shape-3 {
-      width: 250px;
-      height: 250px;
-      top: 80%;
-      left: 30%;
-      animation-duration: 9s;
-    }
-
-    /* HERO CONTENT */
-    .hero-content {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
       z-index: 1;
+    }
+    .hero-content {
+      z-index: 2;
       max-width: 80%;
     }
-
-    /* 
-      Updated Logo:
-      We give it an ID #oeverArtLogo so our new animation can target it 
-      and optionally a <span> for the dot.
-    */
-    #oeverArtLogo {
+    .hero-title {
+      font-size: 2rem;
       font-family: var(--font-secondary);
-      font-size: 3rem;
       margin-bottom: 1rem;
-      letter-spacing: 2px;
     }
-
-    #oeverArtLogo .logo-subtitle {
-      font-family: var(--font-primary);
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
+    .hero-title span {
+      color: var(--color-accent);
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
       line-height: 1.5;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.85);
     }
-
     .cta-button {
       background-color: var(--color-accent);
       color: #000;
@@ -168,386 +132,455 @@
       transition: transform var(--transition-speed), background-color var(--transition-speed);
       font-weight: 500;
     }
-
     .cta-button:hover {
-      background-color: #fff68f; /* Slight variation of gold */
+      background-color: #fff68f;
       transform: scale(1.05);
     }
 
-    /* ----------------- */
-    /* SECTION STYLES   */
-    /* ----------------- */
-    section {
-      padding: 4rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    /* ABOUT SECTION */
+    .about-section {
+      padding: 3rem 1rem;
       text-align: center;
     }
-
+    .section-header {
+      margin-bottom: 2rem;
+    }
     .section-title {
       font-family: var(--font-secondary);
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-
     .section-subtitle {
       font-size: 1rem;
-      max-width: 600px;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 2rem;
-      line-height: 1.5;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
     }
 
-    /* SHOWCASE GRID */
-    .showcase-grid {
+    /* GALLERY SECTION */
+    .gallery-section {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .art-collection {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      width: 100%;
-      max-width: 1200px;
+      margin-top: 2rem;
     }
-
-    .showcase-item {
-      position: relative;
-      overflow: hidden;
+    .art-collection .art-item {
       background-color: #111;
       border: 1px solid #333;
+      overflow: hidden;
       cursor: pointer;
-      transition: transform var(--transition-speed);
+      position: relative;
     }
-
-    .showcase-item:hover {
-      transform: scale(1.02);
-    }
-
-    .showcase-item img,
-    .showcase-item video {
+    .art-collection .art-item img {
       width: 100%;
       height: auto;
-      display: block;
-      transition: opacity var(--transition-speed);
-      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .art-collection .art-item:hover img {
+      transform: scale(1.05);
     }
 
-    /* MICRO-INTERACTION: fade-in on scroll */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
+    /* CUSTOM INQUIRY */
+    .inquiry-section {
+      padding: 3rem 1rem;
+      text-align: center;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .inquiry-form {
+      margin: 2rem auto 0;
+      max-width: 600px;
+      text-align: left;
+    }
+    .form-steps .step {
+      display: none;
+    }
+    .form-steps .step.active {
+      display: block;
+    }
+    .form-steps label {
+      display: block;
+      margin: 0.5rem 0 0.25rem;
+    }
+    .form-steps input[type="text"],
+    .form-steps input[type="email"],
+    .form-steps textarea,
+    .form-steps select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #555;
+      background-color: #222;
+      color: #fff;
+    }
+    .step-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    .step-buttons button {
+      background-color: var(--color-accent);
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    /* PARALLAX SECTION */
+    .parallax-section {
+      position: relative;
+      height: 50vh;
+      background: url('parallax_placeholder.jpg') no-repeat center center;
+      background-attachment: fixed;
+      background-size: cover;
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .parallax-content {
+      z-index: 1;
+    }
+    .parallax-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
     }
 
     /* FOOTER */
-    footer {
+    .site-footer {
       background-color: #111;
-      padding: 2rem;
+      padding: 2rem 1rem;
       text-align: center;
     }
-    .footer-text {
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .footer-left, .footer-middle, .footer-right {
+      margin-bottom: 1rem;
+    }
+    .site-footer p {
       font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .newsletter-form {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .newsletter-form input[type="email"] {
+      padding: 0.5rem;
+      border: 1px solid #555;
+      background-color: #222;
+      color: #fff;
+      flex: 1;
+      min-width: 200px;
+    }
+    .newsletter-submit {
+      background-color: var(--color-accent);
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    .social-icons a {
+      margin-right: 0.5rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
     }
 
-    /* RESPONSIVE TYPOGRAPHY */
+    /* REBATE PROMPT */
+    .rebate-prompt {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .rebate-prompt p {
+      max-width: 600px;
+      margin: 0.5rem auto;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+    }
+
+    /* RESPONSIVE QUERIES */
     @media (max-width: 768px) {
-      #oeverArtLogo {
-        font-size: 2rem;
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .nav-links {
+        display: none; /* or build a mobile nav */
       }
     }
   </style>
 </head>
 <body>
-  <!-- HERO SECTION -->
-  <header class="hero-section">
-    <!-- Animated background container -->
-    <div class="animated-bg">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-    </div>
-
-    <div class="hero-content">
-      <!-- 
-        Updated Logo:
-        Wrapping "oever" and ".art" in a single ID for the new animation.
-        Optionally, we can separate the dot if desired:
-        e.g. oever<span id="logoDot">.</span>art
-      -->
-      <h1 id="oeverArtLogo">
-        oever<span id="logoDot">.</span>art
-      </h1>
-      <p class="hero-subtitle">
-        Explore the mesmerizing digital artistry of Floris van den Hoever, combining nature and fantasy 
-        in breathtaking female portraits.
-      </p>
-      <button class="cta-button" onclick="scrollToSection('hero-details')">Discover More</button>
-    </div>
+  <!-- HEADER -->
+  <header class="site-header">
+    <nav class="nav-bar container">
+      <!-- Logo / Branding -->
+      <div class="branding">
+        <h1 class="logo" id="oeverArtLogo">oever<span id="logoDot">.</span>art</h1>
+      </div>
+      <!-- Nav Links (Optional) -->
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#custom-inquiry">Inquiries</a></li>
+        <li><a href="#footer">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- HERO DETAILS SECTION (example from previous instructions) -->
-  <section id="hero-details" class="fade-in">
-    <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;">
-      Hoover Art, led by Floris van den Hoever, a renowned digital artist from the Netherlands and Ireland, 
-      creates evocative female portrait art infused with elements of nature and fantasy. 
-      With mastery over tools like 3D, Dash, Studio, and Photoshop, Hoover Art delivers 
-      custom artworks that capture the soul of femininity, complemented by delicate touches of nature, 
-      feathers, and animals.
-    </p>
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero-section container">
+    <div class="hero-media">
+      <!-- In-root video file "hero_background.mp4" -->
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="hero_background.mp4" type="video/mp4" />
+        <!-- Fallback for unsupported browsers or mobiles if autoplay fails -->
+        <img src="hero_fallback.jpg" alt="Fallback Image for oever.art" />
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h2 class="hero-title">
+        Welcome to <span>oever.art</span>
+      </h2>
+      <p class="hero-subtitle">
+        Experience the seamless fusion of nature, fantasy, and digital artistry in breathtaking female portraits.
+      </p>
+      <button class="cta-button" onclick="scrollToSection('gallery')">
+        Explore Collections
+      </button>
+    </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="fade-in">
-    <h2 class="section-title">Meet the Artist</h2>
-    <p class="section-subtitle">
-      Floris van den Hoever, the visionary behind Hoover Art, merges his passion for digital artistry 
-      with his deep appreciation for nature. His works transport viewers into ethereal realms 
-      where fantasy and reality intertwine, featuring stunning female portraits adorned with natural elements. 
-      Combining modern tools like 3D design software, Dash, Studio, and Photoshop, Floris redefines 
-      contemporary digital art. Born and raised in the Netherlands with roots in Ireland, 
-      Floris’s art reflects his multicultural heritage and artistic ingenuity.
-    </p>
+  <!-- ABOUT / ARTIST SECTION -->
+  <section id="about" class="about-section container">
+    <div class="section-header">
+      <h2 class="section-title">Meet the Visionary</h2>
+      <p class="section-subtitle">
+        Discover the story behind <strong>oever.art</strong>. Led by Floris van den Hoever, a digital artist 
+        combining modern tools (3D, Dash, Studio, Photoshop) with elements of nature and fantasy 
+        to produce truly captivating female portraits.
+      </p>
+    </div>
   </section>
 
-  <!-- ART GALLERY SECTION -->
-  <section id="gallery" class="fade-in">
-    <h2 class="section-title">Explore Our Collections</h2>
-    <h3 style="font-size:1.2rem; margin-bottom:1rem; color:rgba(255,255,255,0.8);">
-      A Showcase of Nature-Inspired Female Portraits
-    </h3>
-    <p class="section-subtitle">
-      Each artwork from Hoover Art tells a story. Delicate feathers, intricate animals, 
-      and breathtaking landscapes intertwine with the beauty of femininity, 
-      creating captivating pieces of art. Browse our gallery to experience the 
-      harmony between fantasy and nature.
-    </p>
-
-    <div class="showcase-grid">
-      <!-- FIRST PLACEHOLDER (VIDEO) -->
-      <div class="showcase-item">
-        <video
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-        >
-          <source src="crown_of_flowers.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+  <!-- GALLERY SECTION -->
+  <section id="gallery" class="gallery-section container">
+    <div class="section-header">
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-subtitle">
+        Browse an exclusive showcase of nature-inspired artworks. Enjoy interactive previews 
+        and infinite-scroll or carousel transitions for a truly engaging experience.
+      </p>
+    </div>
+    <div class="art-collection" id="artCollection">
+      <!-- Example gallery items or placeholders. 
+           We can dynamically load items via JS or a framework. -->
+      <div class="art-item">
+        <img src="placeholder1.jpg" alt="Art Placeholder 1" />
       </div>
-
-      <!-- SECOND PLACEHOLDER (Local JPEG) -->
-      <div class="showcase-item">
-        <img
-          src="/D5304434-B10C-492A-B4DB-291C7871073D.jpeg"
-          alt="Placeholder Image - Second Artwork"
-        />
-      </div>
-
-      <!-- THIRD PLACEHOLDER (Local JPEG) -->
-      <div class="showcase-item">
-        <img
-          src="/D273EB09-8BBB-4765-ACED-8E17D40BE579.jpeg"
-          alt="Placeholder Image - Third Artwork"
-        />
-      </div>
-
-      <!-- FOURTH PLACEHOLDER (Optional) -->
-      <div class="showcase-item">
-        <img
-          src="https://via.placeholder.com/600x400?text=Collection+4"
-          alt="Placeholder Collection 4"
-        />
+      <div class="art-item">
+        <img src="placeholder2.jpg" alt="Art Placeholder 2" />
       </div>
     </div>
   </section>
 
-  <!-- CUSTOM INQUIRY SECTION -->
-  <section id="custom-inquiry" class="fade-in">
-    <h2 class="section-title">Commission Your Own Artwork</h2>
-    <p class="section-subtitle">
-      Looking for a unique piece of art? Hoover Art offers custom inquiries to bring your vision to life. 
-      Whether it's a portrait combined with natural elements or a fantasy-inspired design, 
-      Floris van den Hoever works closely with clients to create personalized masterpieces.
-    </p>
+  <!-- CUSTOM INQUIRY SECTION (Multi-Step Form) -->
+  <section id="custom-inquiry" class="inquiry-section container">
+    <div class="section-header">
+      <h2 class="section-title">Commission Your Own Artwork</h2>
+      <p class="section-subtitle">
+        Let us bring your vision to life. Our multi-step inquiry form guides you 
+        through the process of requesting a personalized, nature-fantasy masterpiece.
+      </p>
+    </div>
+
+    <form class="inquiry-form" id="inquiryForm">
+      <div class="form-steps">
+        <!-- STEP 1 -->
+        <div class="step active">
+          <h3>Basic Details</h3>
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your Name" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Your Email" required />
+          <button type="button" class="next-btn">Next</button>
+        </div>
+        <!-- STEP 2 -->
+        <div class="step">
+          <h3>Art Preferences</h3>
+          <label for="style">Preferred Style</label>
+          <select id="style">
+            <option value="fantasy">Fantasy</option>
+            <option value="nature">Nature</option>
+            <option value="abstract">Abstract</option>
+          </select>
+          <label for="details">Additional Details</label>
+          <textarea id="details" placeholder="Describe your vision..."></textarea>
+          <div class="step-buttons">
+            <button type="button" class="prev-btn">Back</button>
+            <button type="button" class="next-btn">Next</button>
+          </div>
+        </div>
+        <!-- STEP 3 -->
+        <div class="step">
+          <h3>Confirmation</h3>
+          <p>Review your inquiry and submit to receive a custom quote.</p>
+          <div class="step-buttons">
+            <button type="button" class="prev-btn">Back</button>
+            <button type="submit" class="submit-btn">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
   </section>
 
-  <!-- INNOVATION & TECHNOLOGY SECTION (unchanged) -->
-  <section id="innovation" class="fade-in">
-    <h2 class="section-title">Innovation & Technology</h2>
-    <p class="section-subtitle">
-      Harnessing the power of Node.js/Python servers for real-time data synchronization, 
-      low-latency performance, and secure payment handling. Our back-end architecture 
-      scales globally—ensuring every interaction is as seamless as it is sophisticated.
-    </p>
-    <div class="fade-in">
-      <!-- Example React Component Mounting Point -->
-      <div id="react-root"></div>
+  <!-- PARALLAX / INTERMEDIATE SECTION -->
+  <section class="parallax-section">
+    <div class="parallax-content">
+      <h2>Nature Meets Fantasy</h2>
+      <p>Immerse yourself in a world where digital art transcends reality.</p>
     </div>
   </section>
 
   <!-- FOOTER SECTION -->
-  <footer>
-    <p class="footer-text">
-      Hoover Art © <span id="year"></span> | Digital Art by Floris van den Hoever | Nature Meets Fantasy | All Rights Reserved.
-    </p>
-    <p class="footer-text">
-      For inquiries, reach us at 
-      <a href="mailto:contact@hooverart.com" style="color: var(--color-accent); text-decoration: none;">
-        contact@hooverart.com
-      </a>
-    </p>
-    <!-- Optional Social Media Links -->
-    <p class="footer-text">
-      <a href="#" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.7); margin-right: 0.5rem;">Facebook</a>
-      <a href="#" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.7); margin-right: 0.5rem;">Instagram</a>
-      <a href="#" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.7);">Twitter</a>
-    </p>
+  <footer id="footer" class="site-footer">
+    <div class="footer-container container">
+      <div class="footer-left">
+        <p>oever.art &copy; <span id="year"></span>. All Rights Reserved.</p>
+        <p>Digital Art by Floris van den Hoever</p>
+      </div>
+      <div class="footer-middle">
+        <p>Subscribe to our Newsletter</p>
+        <form id="newsletterForm" class="newsletter-form">
+          <input type="email" id="newsletterEmail" placeholder="Enter your email" required />
+          <button type="submit" class="newsletter-submit">Sign Up</button>
+        </form>
+      </div>
+      <div class="footer-right">
+        <p>Follow us:</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Twitter">TW</a>
+        </div>
+        <p>Contact: <a href="mailto:contact@oever.art">contact@oever.art</a></p>
+      </div>
+    </div>
   </footer>
 
-  <!-- REBATE PROMPT FOR REFINEMENTS -->
-  <section style="border: 2px dashed #666; margin: 2rem; padding: 1rem;" class="fade-in">
-    <h3 style="font-family: var(--font-secondary); margin-bottom: 0.5rem;">Refine Website Text and Logo Animation</h3>
-    <p style="font-family: var(--font-primary); max-width: 700px; margin: 0 auto;">
-      When refining text or the logo animation, replace existing headers, paragraphs, or animations 
-      with updated content while preserving the professional tone, grammar, and overall artistic 
-      essence of the website. Future changes to the logo motion can be updated within the 
-      <code>oever_logo_motion.js</code> logic without affecting other parts of the site.
-    </p>
-    <p style="font-size: 0.9rem; color: #bbb; margin-top: 0.5rem;">
-      <strong>Example Instruction:</strong> 
-      <code>Replace the About Section heading and paragraph with new text featuring the keyword "Golden Fantasy," and adjust the wave motion speed in the logo animation to 0.8.</code>
+  <!-- REBATE PROMPT FOR REFINEMENT -->
+  <section class="rebate-prompt container">
+    <h3>Refine This Website Further</h3>
+    <p>
+      Future updates can replace only specific sections or design elements without disrupting the 
+      overall structure or functionality, ensuring a seamless progression of oever.art to new 
+      standards and inspirations.
     </p>
   </section>
 
-  <!-- INLINE SCRIPT: /oever_logo_motion.js  -->
-  <!-- This is the entire code that 01 LLM would craft for the new advanced motion. -->
+  <!-- Inline "gsap.min.js" (Shortened/Placeholder). For production, replace with actual minified library. -->
   <script>
-    // DomContentLoaded to ensure the DOM is ready
-    document.addEventListener('DOMContentLoaded', () => {
-      // Identify the main logo container
-      const logo = document.getElementById('oeverArtLogo');
-      if (!logo) return;
-
-      // Use GSAP for a timeline-based approach
-      const tl = gsap.timeline({
-        repeat: -1, // infinite loop
-        repeatDelay: 0,
-        defaults: {
-          ease: 'power1.inOut',
-          duration: 1,
-        },
-      });
-
-      // Subtle "breathing" scale effect + wave/ripple
-      tl.to(logo, { scale: 1.05, y: -3, rotation: 0.5, duration: 1.2 }, 0)
-        .to(logo, { scale: 1,   y: 0,  rotation: 0,   duration: 1.2 }, '+=1');
-
-      // Glow/shimmer effect
-      tl.to(logo, {
-        textShadow: '0 0 8px rgba(255,215,0,0.8)',
-        duration: 1.2,
-      }, 0)
-      .to(logo, {
-        textShadow: '0 0 0px rgba(255,215,0,0)',
-        duration: 1.2,
-      }, '+=1');
-
-      // Dot pulse in ".art"
-      const dot = document.querySelector('#oeverArtLogo #logoDot');
-      if (dot) {
-        tl.to(dot, {
-          textShadow: '0 0 10px rgba(255,215,0,1)',
-          duration: 0.6,
-        }, 0.5)
-        .to(dot, {
-          textShadow: '0 0 0px rgba(255,215,0,0)',
-          duration: 0.6,
-        }, '+=0.6');
-      }
-    });
-  </script>
-
-  <!-- INLINE SCRIPTS (FOOTER, OBSERVER) -->
-  <script>
-    // Dynamically set the year in the footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Smooth scroll to a specific section
-    function scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-
-    // Intersection Observer for fade-in effects
-    const fadeInElements = document.querySelectorAll('.fade-in');
-    const options = { threshold: 0.1 };
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
+    /**
+     * BEGIN GSAP PLACEHOLDER
+     * 
+     * !!! For a real production build, replace this entire placeholder with
+     * the official minified GSAP distribution code (gsap.min.js).
+     */
+    (function(global){
+      // Very simplified placeholder for demonstration
+      global.gsap = {
+        timeline: function(config){ 
+          return {
+            to: function(){ return this; },
+            from: function(){ return this; },
+            set: function(){ return this; },
+            repeat: function(){ return this; },
+            repeatDelay: function(){ return this; },
+            defaults: function(){ return this; },
+            add: function(){ return this; }
+          }
         }
-      });
-    }, options);
-
-    fadeInElements.forEach(el => {
-      observer.observe(el);
-    });
+      };
+    })(window);
+    /** 
+     * END GSAP PLACEHOLDER
+     */
   </script>
 
-  <!-- EXAMPLE REACT CODE FOR A MICRO-INTERACTION (OPTIONAL) -->
-  <script type="text/babel">
-    const { useState } = React;
+  <!-- Inline Main JS (formerly main.js) -->
+  <script>
+    // DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set the year
+      document.getElementById('year').textContent = new Date().getFullYear();
 
-    function PaymentButton() {
-      const [status, setStatus] = useState("Pay Now");
-
-      const handleClick = () => {
-        // Placeholder for real payment gateway integration
-        setStatus("Processing...");
-        setTimeout(() => {
-          setStatus("Payment Successful");
-        }, 2000);
+      // Scroll helper
+      window.scrollToSection = (sectionId) => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
       };
 
-      return (
-        <button 
-          style={{
-            backgroundColor: 'var(--color-accent)',
-            color: '#000',
-            padding: '0.75rem 2rem',
-            border: 'none',
-            fontSize: '1rem',
-            fontWeight: '500',
-            cursor: 'pointer',
-            transition: 'background-color var(--transition-speed)',
-          }}
-          onMouseEnter={(e) => e.target.style.backgroundColor = '#fff68f'}
-          onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--color-accent)'}
-          onClick={handleClick}
-        >
-          {status}
-        </button>
-      );
-    }
+      // Multi-Step Form Logic
+      const steps = Array.from(document.querySelectorAll('.step'));
+      const nextBtns = document.querySelectorAll('.next-btn');
+      const prevBtns = document.querySelectorAll('.prev-btn');
+      const form = document.getElementById('inquiryForm');
 
-    function App() {
-      return (
-        <div style={{ marginTop: '2rem' }}>
-          <h3 style={{ marginBottom: '1rem' }}>Premium Payment Integration</h3>
-          <PaymentButton />
-        </div>
-      );
-    }
+      let currentStep = 0;
 
-    ReactDOM.render(<App />, document.getElementById('react-root'));
+      nextBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          steps[currentStep].classList.remove('active');
+          currentStep = Math.min(currentStep + 1, steps.length - 1);
+          steps[currentStep].classList.add('active');
+        });
+      });
+
+      prevBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          steps[currentStep].classList.remove('active');
+          currentStep = Math.max(currentStep - 1, 0);
+          steps[currentStep].classList.add('active');
+        });
+      });
+
+      // Form submit
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Your inquiry has been submitted. Thank you!');
+        // Reset form if needed
+        form.reset();
+        steps[currentStep].classList.remove('active');
+        currentStep = 0;
+        steps[currentStep].classList.add('active');
+      });
+
+      // Newsletter Form
+      const newsletterForm = document.getElementById('newsletterForm');
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const emailVal = document.getElementById('newsletterEmail').value;
+        alert(`Thanks for subscribing! We'll reach out to ${emailVal} soon.`);
+        newsletterForm.reset();
+      });
+
+      // OPTIONAL: GSAP Animations for text, parallax, etc.
+      // Example: If you replaced the placeholder with real GSAP, you can do:
+      // const tl = gsap.timeline();
+      // tl.to("#oeverArtLogo", { ... });
+    });
   </script>
 </body>
 </html>
