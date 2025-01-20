@@ -229,10 +229,12 @@
       transform: scale(1.02);
     }
 
-    .showcase-item img {
+    .showcase-item img, .showcase-item video {
       width: 100%;
+      height: auto;
       display: block;
       transition: opacity var(--transition-speed);
+      object-fit: cover;
     }
 
     /* MICRO-INTERACTION: fade-in on scroll */
@@ -255,46 +257,6 @@
     .footer-text {
       font-size: 0.9rem;
       color: rgba(255, 255, 255, 0.5);
-    }
-
-    /* FEATURED/EMBEDDED MEDIA GRID */
-    .art-grid {
-      display: grid;
-      gap: 2rem;
-      width: 100%;
-      max-width: 1200px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    .art-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #111;
-      border: 1px solid #333;
-      padding: 1.5rem;
-      transition: transform var(--transition-speed);
-      cursor: pointer;
-    }
-
-    .art-item:hover {
-      transform: scale(1.02);
-    }
-
-    /* Responsive media elements */
-    .art-video,
-    .art-image {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      transition: opacity var(--transition-speed);
-      display: block;
-    }
-
-    /* Video customization (mute, no controls, etc.) */
-    .art-video {
-      /* Ensures the video can autoplay in mobile browsers if muted and inline */
-      /* Already set via autoplay, muted, loop, playsinline attributes */
     }
 
     /* RESPONSIVE TYPOGRAPHY */
@@ -341,47 +303,45 @@
       Explore our premium displays—uniquely designed for connoisseurs of the finest digital art.
     </p>
     <div class="showcase-grid fade-in">
-      <!-- Showcase Item 1 (Video) -->
+      <!-- First Placeholder (Video) - Looping indefinitely -->
       <div class="showcase-item">
-        <!-- Autoplaying, muted, looping, inline video -->
         <video
-          class="art-video"
-          src="/crown_of_flowers.mp4"
           autoplay
           muted
           loop
           playsinline
-        ></video>
+          preload="auto"
+        >
+          <source src="crown_of_flowers.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
-      <!-- Showcase Item 2 (JPEG) -->
+      <!-- Second Placeholder (Local JPEG) -->
       <div class="showcase-item">
         <img
-          class="art-image"
           src="/D5304434-B10C-492A-B4DB-291C7871073D.jpeg"
           alt="Placeholder Image - Second Artwork"
         />
       </div>
 
-      <!-- Showcase Item 3 (JPEG) -->
+      <!-- Third Placeholder (Local JPEG) -->
       <div class="showcase-item">
         <img
-          class="art-image"
           src="/D273EB09-8BBB-4765-ACED-8E17D40BE579.jpeg"
           alt="Placeholder Image - Third Artwork"
         />
       </div>
 
-      <!-- Optionally remove or keep more placeholders if needed; 
-           only the first three now reference the local files. -->
+      <!-- Remaining placeholder (Optional) -->
       <div class="showcase-item">
-        <img src="https://via.placeholder.com/600x400?text=Collection+4" alt="Placeholder Collection 4" />
+        <img
+          src="https://via.placeholder.com/600x400?text=Collection+4"
+          alt="Placeholder Collection 4"
+        />
       </div>
     </div>
   </section>
-
-  <!-- OPTIONAL FEATURED SECTION REMOVED/OMITTED OR KEPT AS NEEDED -->
-  <!-- If you need to remove old placeholders entirely, you can do so. -->
 
   <!-- INNOVATION & BACKEND PLACEHOLDER -->
   <section id="innovation">
