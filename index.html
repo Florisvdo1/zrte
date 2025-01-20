@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="oever.art – A 1-Billion-Dollar-Worthy Fusion of Nature, Fantasy, and Feminine Beauty" />
+  <meta
+    name="description"
+    content="oever.art – A 1-Billion-Dollar-Worthy Fusion of Nature, Fantasy, and Feminine Beauty"
+  />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>oever.art – Refined & Rebuilt for Luxury</title>
 
-  <!-- Inline CSS (formerly style.css) -->
+  <!-- Inline CSS -->
   <style>
     :root {
-      --color-background: #000000;
-      --color-foreground: #ffffff;
+      --color-background: #000;
+      --color-foreground: #fff;
       --color-accent: #ffd700; /* Gold accent */
       --font-primary: 'Poppins', sans-serif;
       --font-secondary: 'Playfair Display', serif;
@@ -40,7 +43,7 @@
       position: relative;
     }
 
-    /* NAV / HEADER */
+    /* HEADER */
     .site-header {
       background-color: #111;
       padding: 1rem 0;
@@ -232,7 +235,7 @@
     .parallax-section {
       position: relative;
       height: 50vh;
-      background: url('parallax_placeholder.jpg') no-repeat center center;
+      background: url('images1.jpg') no-repeat center center;
       background-attachment: fixed;
       background-size: cover;
       margin: 2rem 0;
@@ -343,11 +346,11 @@
   <!-- HERO SECTION -->
   <section id="hero" class="hero-section container">
     <div class="hero-media">
-      <!-- Root-level video "hero_background.mp4" -->
+      <!-- Root-level indefinite looping video: crown_of_flowers.mp4 -->
       <video class="hero-video" autoplay muted loop playsinline>
-        <source src="hero_background.mp4" type="video/mp4" />
-        <!-- Fallback if autoplay fails -->
-        <img src="hero_fallback.jpg" alt="Fallback for oever.art" />
+        <source src="crown_of_flowers.mp4" type="video/mp4" />
+        <!-- Fallback if autoplay fails, referencing images1.jpg as a fallback -->
+        <img src="images1.jpg" alt="Fallback for oever.art" />
       </video>
     </div>
     <div class="hero-overlay"></div>
@@ -386,12 +389,18 @@
       </p>
     </div>
     <div class="art-collection" id="artCollection">
-      <!-- Example Items -->
+      <!-- 4 placeholders, referencing images in the root directory -->
       <div class="art-item">
-        <img src="placeholder1.jpg" alt="Art Placeholder 1" />
+        <img src="images1.jpg" alt="Art Placeholder 1" />
       </div>
       <div class="art-item">
-        <img src="placeholder2.jpg" alt="Art Placeholder 2" />
+        <img src="images2.jpg" alt="Art Placeholder 2" />
+      </div>
+      <div class="art-item">
+        <img src="images3.jpg" alt="Art Placeholder 3" />
+      </div>
+      <div class="art-item">
+        <img src="images4.jpg" alt="Art Placeholder 4" />
       </div>
     </div>
   </section>
@@ -490,33 +499,34 @@
     </p>
   </section>
 
-  <!-- Inline GSAP (Real Minified Code) + Our Logo Motion  -->
+  <!-- Inline GSAP + Our advanced “oever.art” logo motion -->
   <script>
-  /*! 
-   * GSAP 3.11.5 - Official minified code goes here 
-   * For brevity, replaced with a short placeholder. 
-   */
+  /*
+    For production, replace this placeholder with the official, minified GSAP code:
+    https://cdnjs.com/libraries/gsap
+  */
   (function(window) {
-    // Minimal GSAP code placeholder
+    // Simplified GSAP placeholder
     window.gsap = {
-      timeline: function(cfg){
+      timeline: function(opts) {
         return {
-          _queue: [],
-          to: function(el, options, position){ this._queue.push({el,options,position}); return this; },
-          repeat: function() { return this; },
-          defaults: function() { return this; },
-          play: function() { return this; }
+          to() { return this; },
+          from() { return this; },
+          set() { return this; },
+          repeat() { return this; },
+          defaults() { return this; },
+          add() { return this; }
         };
       }
     };
   })(window);
 
-  // Our advanced motion code for "oever.art" text
+  // Actual animation for "oever.art" logo
   document.addEventListener('DOMContentLoaded', () => {
     const logo = document.getElementById('oeverArtLogo');
     if (!window.gsap || !logo) return;
 
-    // Create a GSAP timeline to produce a ~5 second seamless loop
+    // Create a GSAP timeline for ~5 second seamless loop
     const tl = gsap.timeline({ repeat: -1, defaults: { duration: 1, ease: 'power1.inOut' } });
 
     // Subtle breathing/wave effect
@@ -527,8 +537,8 @@
     tl.to(logo, { textShadow: '0 0 8px rgba(255,215,0,0.8)', duration: 1.2 }, 0)
       .to(logo, { textShadow: '0 0 0 rgba(255,215,0,0)', duration: 1.2 }, '+=1');
 
-    // Pulsy dot on “.art”
-    const dot = document.querySelector('#logoDot');
+    // Pulsy dot on ".art"
+    const dot = document.getElementById('logoDot');
     if (dot) {
       tl.to(dot, { textShadow: '0 0 10px rgba(255,215,0,1)', duration: 0.6 }, 0.5)
         .to(dot, { textShadow: '0 0 0 rgba(255,215,0,0)', duration: 0.6 }, '+=0.6');
@@ -536,7 +546,7 @@
   });
   </script>
 
-  <!-- Inline Main JS (formerly main.js) -->
+  <!-- Inline Main JS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // YEAR
