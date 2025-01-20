@@ -3,12 +3,9 @@
 <head>
   <!-- Essential Meta Tags -->
   <meta charset="UTF-8" />
-  <meta
-    name="description"
-    content="Hoover Art - The Fusion of Nature, Fantasy, and Feminine Beauty"
-  />
+  <meta name="description" content="Hoover Art - The Fusion of Nature, Fantasy, and Feminine Beauty" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hoover Art - The Fusion of Nature, Fantasy, and Feminine Beauty</title>
+  <title>oever.art – Where Luxury Meets Artistry (Now with Updated Logo Motion)</title>
 
   <!-- Google Fonts (Premium Typography) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -17,9 +14,12 @@
     rel="stylesheet"
   />
 
+  <!-- GSAP (GreenSock Animation Platform) via CDN -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+
   <!-- Example of React (Optional), loaded from a CDN -->
   <!-- 
-    For a production-grade app, bundle React properly or use a framework like Next.js/Gatsby (Node) 
+    For a production-grade app, you could bundle React or use a framework like Next.js/Gatsby (Node) 
     or Nuxt.js (Vue) for best performance and SEO.
   -->
   <script
@@ -138,14 +138,19 @@
       max-width: 80%;
     }
 
-    .hero-title {
+    /* 
+      Updated Logo:
+      We give it an ID #oeverArtLogo so our new animation can target it 
+      and optionally a <span> for the dot.
+    */
+    #oeverArtLogo {
       font-family: var(--font-secondary);
       font-size: 3rem;
       margin-bottom: 1rem;
       letter-spacing: 2px;
     }
 
-    .hero-subtitle {
+    #oeverArtLogo .logo-subtitle {
       font-family: var(--font-primary);
       font-size: 1.25rem;
       margin-bottom: 2rem;
@@ -249,14 +254,14 @@
 
     /* RESPONSIVE TYPOGRAPHY */
     @media (max-width: 768px) {
-      .hero-title {
+      #oeverArtLogo {
         font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- HERO SECTION (Header) -->
+  <!-- HERO SECTION -->
   <header class="hero-section">
     <!-- Animated background container -->
     <div class="animated-bg">
@@ -266,23 +271,31 @@
     </div>
 
     <div class="hero-content">
-      <!-- Website Header Text Replaced -->
-      <h1 class="hero-title">Hoover Art - The Fusion of Nature, Fantasy, and Feminine Beauty</h1>
+      <!-- 
+        Updated Logo:
+        Wrapping "oever" and ".art" in a single ID for the new animation.
+        Optionally, we can separate the dot if desired:
+        e.g. oever<span id="logoDot">.</span>art
+      -->
+      <h1 id="oeverArtLogo">
+        oever<span id="logoDot">.</span>art
+      </h1>
       <p class="hero-subtitle">
-        Explore the mesmerizing digital artistry of Floris van den Hoever, combining nature and fantasy in breathtaking female portraits.
+        Explore the mesmerizing digital artistry of Floris van den Hoever, combining nature and fantasy 
+        in breathtaking female portraits.
       </p>
-      <!-- Button can scroll to about or hero section below -->
       <button class="cta-button" onclick="scrollToSection('hero-details')">Discover More</button>
     </div>
   </header>
 
-  <!-- HERO DETAILS SECTION (Refined with new Hoover Art text) -->
+  <!-- HERO DETAILS SECTION (example from previous instructions) -->
   <section id="hero-details" class="fade-in">
     <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;">
       Hoover Art, led by Floris van den Hoever, a renowned digital artist from the Netherlands and Ireland, 
       creates evocative female portrait art infused with elements of nature and fantasy. 
-      With mastery over tools like 3D, Dash, Studio, and Photoshop, Hoover Art delivers custom artworks 
-      that capture the soul of femininity, complemented by delicate touches of nature, feathers, and animals.
+      With mastery over tools like 3D, Dash, Studio, and Photoshop, Hoover Art delivers 
+      custom artworks that capture the soul of femininity, complemented by delicate touches of nature, 
+      feathers, and animals.
     </p>
   </section>
 
@@ -291,15 +304,15 @@
     <h2 class="section-title">Meet the Artist</h2>
     <p class="section-subtitle">
       Floris van den Hoever, the visionary behind Hoover Art, merges his passion for digital artistry 
-      with his deep appreciation for nature. His works transport viewers into ethereal realms where fantasy 
-      and reality intertwine, featuring stunning female portraits adorned with natural elements. 
+      with his deep appreciation for nature. His works transport viewers into ethereal realms 
+      where fantasy and reality intertwine, featuring stunning female portraits adorned with natural elements. 
       Combining modern tools like 3D design software, Dash, Studio, and Photoshop, Floris redefines 
       contemporary digital art. Born and raised in the Netherlands with roots in Ireland, 
       Floris’s art reflects his multicultural heritage and artistic ingenuity.
     </p>
   </section>
 
-  <!-- ART GALLERY SECTION (Replaces 'Curated Collections' with new text) -->
+  <!-- ART GALLERY SECTION -->
   <section id="gallery" class="fade-in">
     <h2 class="section-title">Explore Our Collections</h2>
     <h3 style="font-size:1.2rem; margin-bottom:1rem; color:rgba(255,255,255,0.8);">
@@ -312,9 +325,8 @@
       harmony between fantasy and nature.
     </p>
 
-    <!-- Existing placeholders remain untouched, only text changed -->
     <div class="showcase-grid">
-      <!-- First Placeholder (Video) -->
+      <!-- FIRST PLACEHOLDER (VIDEO) -->
       <div class="showcase-item">
         <video
           autoplay
@@ -328,7 +340,7 @@
         </video>
       </div>
 
-      <!-- Second Placeholder (Local JPEG) -->
+      <!-- SECOND PLACEHOLDER (Local JPEG) -->
       <div class="showcase-item">
         <img
           src="/D5304434-B10C-492A-B4DB-291C7871073D.jpeg"
@@ -336,7 +348,7 @@
         />
       </div>
 
-      <!-- Third Placeholder (Local JPEG) -->
+      <!-- THIRD PLACEHOLDER (Local JPEG) -->
       <div class="showcase-item">
         <img
           src="/D273EB09-8BBB-4765-ACED-8E17D40BE579.jpeg"
@@ -344,7 +356,7 @@
         />
       </div>
 
-      <!-- Fourth placeholder (optional) -->
+      <!-- FOURTH PLACEHOLDER (Optional) -->
       <div class="showcase-item">
         <img
           src="https://via.placeholder.com/600x400?text=Collection+4"
@@ -364,7 +376,7 @@
     </p>
   </section>
 
-  <!-- INNOVATION & TECHNOLOGY SECTION (Unchanged) -->
+  <!-- INNOVATION & TECHNOLOGY SECTION (unchanged) -->
   <section id="innovation" class="fade-in">
     <h2 class="section-title">Innovation & Technology</h2>
     <p class="section-subtitle">
@@ -372,13 +384,13 @@
       low-latency performance, and secure payment handling. Our back-end architecture 
       scales globally—ensuring every interaction is as seamless as it is sophisticated.
     </p>
-    <div>
+    <div class="fade-in">
       <!-- Example React Component Mounting Point -->
       <div id="react-root"></div>
     </div>
   </section>
 
-  <!-- FOOTER SECTION (Replaced with Hoover Art info) -->
+  <!-- FOOTER SECTION -->
   <footer>
     <p class="footer-text">
       Hoover Art © <span id="year"></span> | Digital Art by Floris van den Hoever | Nature Meets Fantasy | All Rights Reserved.
@@ -399,32 +411,83 @@
 
   <!-- REBATE PROMPT FOR REFINEMENTS -->
   <section style="border: 2px dashed #666; margin: 2rem; padding: 1rem;" class="fade-in">
-    <h3 style="font-family: var(--font-secondary); margin-bottom: 0.5rem;">Refine Website Text</h3>
+    <h3 style="font-family: var(--font-secondary); margin-bottom: 0.5rem;">Refine Website Text and Logo Animation</h3>
     <p style="font-family: var(--font-primary); max-width: 700px; margin: 0 auto;">
-      When refining text, replace existing headers, paragraphs, or descriptions with updated content 
-      while preserving the professional tone, grammar, and overall artistic essence of the website.
+      When refining text or the logo animation, replace existing headers, paragraphs, or animations 
+      with updated content while preserving the professional tone, grammar, and overall artistic 
+      essence of the website. Future changes to the logo motion can be updated within the 
+      <code>oever_logo_motion.js</code> logic without affecting other parts of the site.
     </p>
     <p style="font-size: 0.9rem; color: #bbb; margin-top: 0.5rem;">
       <strong>Example Instruction:</strong> 
-      <code>Replace the About Section heading and paragraph with new text featuring the keyword "Golden Fantasy."</code>
+      <code>Replace the About Section heading and paragraph with new text featuring the keyword "Golden Fantasy," and adjust the wave motion speed in the logo animation to 0.8.</code>
     </p>
   </section>
 
-  <!-- INLINE SCRIPTS -->
+  <!-- INLINE SCRIPT: /oever_logo_motion.js  -->
+  <!-- This is the entire code that 01 LLM would craft for the new advanced motion. -->
   <script>
-    // Dynamically set the year in footer
+    // DomContentLoaded to ensure the DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      // Identify the main logo container
+      const logo = document.getElementById('oeverArtLogo');
+      if (!logo) return;
+
+      // Use GSAP for a timeline-based approach
+      const tl = gsap.timeline({
+        repeat: -1, // infinite loop
+        repeatDelay: 0,
+        defaults: {
+          ease: 'power1.inOut',
+          duration: 1,
+        },
+      });
+
+      // Subtle "breathing" scale effect + wave/ripple
+      tl.to(logo, { scale: 1.05, y: -3, rotation: 0.5, duration: 1.2 }, 0)
+        .to(logo, { scale: 1,   y: 0,  rotation: 0,   duration: 1.2 }, '+=1');
+
+      // Glow/shimmer effect
+      tl.to(logo, {
+        textShadow: '0 0 8px rgba(255,215,0,0.8)',
+        duration: 1.2,
+      }, 0)
+      .to(logo, {
+        textShadow: '0 0 0px rgba(255,215,0,0)',
+        duration: 1.2,
+      }, '+=1');
+
+      // Dot pulse in ".art"
+      const dot = document.querySelector('#oeverArtLogo #logoDot');
+      if (dot) {
+        tl.to(dot, {
+          textShadow: '0 0 10px rgba(255,215,0,1)',
+          duration: 0.6,
+        }, 0.5)
+        .to(dot, {
+          textShadow: '0 0 0px rgba(255,215,0,0)',
+          duration: 0.6,
+        }, '+=0.6');
+      }
+    });
+  </script>
+
+  <!-- INLINE SCRIPTS (FOOTER, OBSERVER) -->
+  <script>
+    // Dynamically set the year in the footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Smooth scroll to a specific section
     function scrollToSection(sectionId) {
-      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
 
     // Intersection Observer for fade-in effects
     const fadeInElements = document.querySelectorAll('.fade-in');
-    const options = {
-      threshold: 0.1,
-    };
+    const options = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
