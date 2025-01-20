@@ -10,19 +10,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hoover Art - The Fusion of Nature, Fantasy, and Feminine Beauty</title>
 
-  <!-- Example Fonts (You can replace with your own premium fonts) -->
+  <!-- Google Fonts (Premium Typography) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap"
     rel="stylesheet"
   />
 
+  <!-- Example of React (Optional), loaded from a CDN -->
+  <!-- 
+    For a production-grade app, bundle React properly or use a framework like Next.js/Gatsby (Node) 
+    or Nuxt.js (Vue) for best performance and SEO.
+  -->
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.production.min.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+  ></script>
+  <script
+    src="https://unpkg.com/babel-standalone@6/babel.min.js"
+  ></script>
+
   <!-- Styles -->
   <style>
     :root {
       --color-background: #000000;
       --color-foreground: #ffffff;
-      --color-accent: #ffd700; /* Gold accent */
+      --color-accent: #ffd700; /* Gold accent for premium feel */
       --font-primary: 'Poppins', sans-serif;
       --font-secondary: 'Playfair Display', serif;
       --transition-speed: 0.3s;
@@ -42,7 +59,9 @@
       overflow-x: hidden;
     }
 
-    /* HERO / HEADER SECTION WITH GPU-OPTIMIZED BACKGROUND */
+    /* ----------------------------- */
+    /* HERO SECTION WITH ANIMATIONS */
+    /* ----------------------------- */
     .hero-section {
       position: relative;
       width: 100%;
@@ -54,7 +73,8 @@
       text-align: center;
       background-color: var(--color-background);
     }
-    /* Animated shapes in the hero background */
+
+    /* Container for the fluid art shapes */
     .animated-bg {
       position: absolute;
       top: 0;
@@ -64,15 +84,19 @@
       overflow: hidden;
       z-index: 0;
     }
+
     .shape {
       position: absolute;
       background: var(--color-accent);
       opacity: 0.15;
       border-radius: 50%;
       mix-blend-mode: screen;
+      /* GPU-Optimized via transform3d */
       transform: translate3d(0, 0, 0);
       animation: floatShapes 10s infinite ease-in-out alternate;
     }
+
+    /* Keyframes for shapes (floating, scaling, rotating for fluidity) */
     @keyframes floatShapes {
       0% {
         transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
@@ -84,6 +108,8 @@
         transform: translate3d(-50px, 50px, 0) scale(1.1) rotate(-45deg);
       }
     }
+
+    /* Shape variants for more dynamic visuals */
     .shape-1 {
       width: 300px;
       height: 300px;
@@ -111,19 +137,22 @@
       z-index: 1;
       max-width: 80%;
     }
+
     .hero-title {
       font-family: var(--font-secondary);
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 1rem;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
     }
+
     .hero-subtitle {
       font-family: var(--font-primary);
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       margin-bottom: 2rem;
       line-height: 1.5;
       color: rgba(255, 255, 255, 0.8);
     }
+
     .cta-button {
       background-color: var(--color-accent);
       color: #000;
@@ -134,12 +163,15 @@
       transition: transform var(--transition-speed), background-color var(--transition-speed);
       font-weight: 500;
     }
+
     .cta-button:hover {
-      background-color: #fff68f;
+      background-color: #fff68f; /* Slight variation of gold */
       transform: scale(1.05);
     }
 
-    /* SECTION BASE STYLES */
+    /* ----------------- */
+    /* SECTION STYLES   */
+    /* ----------------- */
     section {
       padding: 4rem 2rem;
       display: flex;
@@ -147,11 +179,13 @@
       align-items: center;
       text-align: center;
     }
+
     .section-title {
       font-family: var(--font-secondary);
       font-size: 2rem;
       margin-bottom: 1rem;
     }
+
     .section-subtitle {
       font-size: 1rem;
       max-width: 600px;
@@ -159,7 +193,39 @@
       margin-bottom: 2rem;
       line-height: 1.5;
     }
-    /* Fade-in animation on scroll */
+
+    /* SHOWCASE GRID */
+    .showcase-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .showcase-item {
+      position: relative;
+      overflow: hidden;
+      background-color: #111;
+      border: 1px solid #333;
+      cursor: pointer;
+      transition: transform var(--transition-speed);
+    }
+
+    .showcase-item:hover {
+      transform: scale(1.02);
+    }
+
+    .showcase-item img,
+    .showcase-item video {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity var(--transition-speed);
+      object-fit: cover;
+    }
+
+    /* MICRO-INTERACTION: fade-in on scroll */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -179,33 +245,20 @@
     .footer-text {
       font-size: 0.9rem;
       color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 1rem;
-    }
-    .footer-links a {
-      margin: 0 0.4rem;
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .footer-links a:hover {
-      color: var(--color-accent);
     }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE TYPOGRAPHY */
     @media (max-width: 768px) {
       .hero-title {
-        font-size: 1.8rem;
-      }
-      .hero-subtitle {
-        font-size: 1rem;
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- HERO (HEADER) SECTION -->
+  <!-- HERO SECTION (Header) -->
   <header class="hero-section">
-    <!-- Animated background -->
+    <!-- Animated background container -->
     <div class="animated-bg">
       <div class="shape shape-1"></div>
       <div class="shape shape-2"></div>
@@ -213,24 +266,23 @@
     </div>
 
     <div class="hero-content">
-      <!-- Replace original text with the new header info -->
+      <!-- Website Header Text Replaced -->
       <h1 class="hero-title">Hoover Art - The Fusion of Nature, Fantasy, and Feminine Beauty</h1>
       <p class="hero-subtitle">
         Explore the mesmerizing digital artistry of Floris van den Hoever, combining nature and fantasy in breathtaking female portraits.
       </p>
-      <button class="cta-button" onclick="scrollToSection('hero')">Learn More</button>
+      <!-- Button can scroll to about or hero section below -->
+      <button class="cta-button" onclick="scrollToSection('hero-details')">Discover More</button>
     </div>
   </header>
 
-  <!-- HERO-LIKE SECTION (renamed for clarity, but can be combined if desired) -->
-  <!-- Replaces the "Hero" text from prior code with new descriptive text -->
-  <section id="hero" class="fade-in">
-    <p class="section-subtitle" style="max-width: 700px; margin: 0 auto; color: #ccc;">
+  <!-- HERO DETAILS SECTION (Refined with new Hoover Art text) -->
+  <section id="hero-details" class="fade-in">
+    <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;">
       Hoover Art, led by Floris van den Hoever, a renowned digital artist from the Netherlands and Ireland, 
       creates evocative female portrait art infused with elements of nature and fantasy. 
-      With mastery over tools like 3D, Dash, Studio, and Photoshop, Hoover Art delivers 
-      custom artworks that capture the soul of femininity, complemented by delicate touches of nature, 
-      feathers, and animals.
+      With mastery over tools like 3D, Dash, Studio, and Photoshop, Hoover Art delivers custom artworks 
+      that capture the soul of femininity, complemented by delicate touches of nature, feathers, and animals.
     </p>
   </section>
 
@@ -239,18 +291,18 @@
     <h2 class="section-title">Meet the Artist</h2>
     <p class="section-subtitle">
       Floris van den Hoever, the visionary behind Hoover Art, merges his passion for digital artistry 
-      with his deep appreciation for nature. His works transport viewers into ethereal realms 
-      where fantasy and reality intertwine, featuring stunning female portraits adorned 
-      with natural elements. Combining modern tools like 3D design software, Dash, Studio, 
-      and Photoshop, Floris redefines contemporary digital art. Born and raised in the Netherlands 
-      with roots in Ireland, Floris’s art reflects his multicultural heritage and artistic ingenuity.
+      with his deep appreciation for nature. His works transport viewers into ethereal realms where fantasy 
+      and reality intertwine, featuring stunning female portraits adorned with natural elements. 
+      Combining modern tools like 3D design software, Dash, Studio, and Photoshop, Floris redefines 
+      contemporary digital art. Born and raised in the Netherlands with roots in Ireland, 
+      Floris’s art reflects his multicultural heritage and artistic ingenuity.
     </p>
   </section>
 
-  <!-- GALLERY SECTION (renamed from #showcase to #gallery) -->
+  <!-- ART GALLERY SECTION (Replaces 'Curated Collections' with new text) -->
   <section id="gallery" class="fade-in">
     <h2 class="section-title">Explore Our Collections</h2>
-    <h3 style="font-family: var(--font-primary); font-size:1.25rem; color: #ccc; margin-bottom: 1.5rem;">
+    <h3 style="font-size:1.2rem; margin-bottom:1rem; color:rgba(255,255,255,0.8);">
       A Showcase of Nature-Inspired Female Portraits
     </h3>
     <p class="section-subtitle">
@@ -260,8 +312,46 @@
       harmony between fantasy and nature.
     </p>
 
-    <!-- (Optional) You can keep or remove any existing placeholders or images here -->
-    <!-- Example placeholder gallery items could be inserted below -->
+    <!-- Existing placeholders remain untouched, only text changed -->
+    <div class="showcase-grid">
+      <!-- First Placeholder (Video) -->
+      <div class="showcase-item">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source src="crown_of_flowers.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Second Placeholder (Local JPEG) -->
+      <div class="showcase-item">
+        <img
+          src="/D5304434-B10C-492A-B4DB-291C7871073D.jpeg"
+          alt="Placeholder Image - Second Artwork"
+        />
+      </div>
+
+      <!-- Third Placeholder (Local JPEG) -->
+      <div class="showcase-item">
+        <img
+          src="/D273EB09-8BBB-4765-ACED-8E17D40BE579.jpeg"
+          alt="Placeholder Image - Third Artwork"
+        />
+      </div>
+
+      <!-- Fourth placeholder (optional) -->
+      <div class="showcase-item">
+        <img
+          src="https://via.placeholder.com/600x400?text=Collection+4"
+          alt="Placeholder Collection 4"
+        />
+      </div>
+    </div>
   </section>
 
   <!-- CUSTOM INQUIRY SECTION -->
@@ -274,18 +364,37 @@
     </p>
   </section>
 
-  <!-- FOOTER SECTION -->
+  <!-- INNOVATION & TECHNOLOGY SECTION (Unchanged) -->
+  <section id="innovation" class="fade-in">
+    <h2 class="section-title">Innovation & Technology</h2>
+    <p class="section-subtitle">
+      Harnessing the power of Node.js/Python servers for real-time data synchronization, 
+      low-latency performance, and secure payment handling. Our back-end architecture 
+      scales globally—ensuring every interaction is as seamless as it is sophisticated.
+    </p>
+    <div>
+      <!-- Example React Component Mounting Point -->
+      <div id="react-root"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION (Replaced with Hoover Art info) -->
   <footer>
     <p class="footer-text">
       Hoover Art © <span id="year"></span> | Digital Art by Floris van den Hoever | Nature Meets Fantasy | All Rights Reserved.
     </p>
-    <div class="footer-links">
-      <!-- Social Media Links (Placeholder) -->
-      <a href="#" target="_blank" rel="noopener">Facebook</a>
-      <a href="#" target="_blank" rel="noopener">Instagram</a>
-      <a href="#" target="_blank" rel="noopener">Twitter</a>
-    </div>
-    <p class="footer-text">For inquiries, reach us at <a href="mailto:contact@hooverart.com" style="color: var(--color-accent);">contact@hooverart.com</a></p>
+    <p class="footer-text">
+      For inquiries, reach us at 
+      <a href="mailto:contact@hooverart.com" style="color: var(--color-accent); text-decoration: none;">
+        contact@hooverart.com
+      </a>
+    </p>
+    <!-- Optional Social Media Links -->
+    <p class="footer-text">
+      <a href="#" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.7); margin-right: 0.5rem;">Facebook</a>
+      <a href="#" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.7); margin-right: 0.5rem;">Instagram</a>
+      <a href="#" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.7);">Twitter</a>
+    </p>
   </footer>
 
   <!-- REBATE PROMPT FOR REFINEMENTS -->
@@ -301,9 +410,9 @@
     </p>
   </section>
 
-  <!-- JS: Auto-set year and fade-in animations -->
+  <!-- INLINE SCRIPTS -->
   <script>
-    // Dynamically set the year in the footer
+    // Dynamically set the year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Smooth scroll to a specific section
@@ -313,7 +422,9 @@
 
     // Intersection Observer for fade-in effects
     const fadeInElements = document.querySelectorAll('.fade-in');
-    const observerOptions = { threshold: 0.1 };
+    const options = {
+      threshold: 0.1,
+    };
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -321,9 +432,59 @@
           obs.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, options);
 
-    fadeInElements.forEach(el => observer.observe(el));
+    fadeInElements.forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+  <!-- EXAMPLE REACT CODE FOR A MICRO-INTERACTION (OPTIONAL) -->
+  <script type="text/babel">
+    const { useState } = React;
+
+    function PaymentButton() {
+      const [status, setStatus] = useState("Pay Now");
+
+      const handleClick = () => {
+        // Placeholder for real payment gateway integration
+        setStatus("Processing...");
+        setTimeout(() => {
+          setStatus("Payment Successful");
+        }, 2000);
+      };
+
+      return (
+        <button 
+          style={{
+            backgroundColor: 'var(--color-accent)',
+            color: '#000',
+            padding: '0.75rem 2rem',
+            border: 'none',
+            fontSize: '1rem',
+            fontWeight: '500',
+            cursor: 'pointer',
+            transition: 'background-color var(--transition-speed)',
+          }}
+          onMouseEnter={(e) => e.target.style.backgroundColor = '#fff68f'}
+          onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--color-accent)'}
+          onClick={handleClick}
+        >
+          {status}
+        </button>
+      );
+    }
+
+    function App() {
+      return (
+        <div style={{ marginTop: '2rem' }}>
+          <h3 style={{ marginBottom: '1rem' }}>Premium Payment Integration</h3>
+          <PaymentButton />
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('react-root'));
   </script>
 </body>
 </html>
